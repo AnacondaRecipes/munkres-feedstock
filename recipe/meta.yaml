@@ -20,6 +20,8 @@ requirements:
   host:
     - python
     - setuptools
+    - wheel
+    - pip
   run:
     - python
 
