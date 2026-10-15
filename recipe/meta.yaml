@@ -22,6 +22,16 @@ requirements:
   run:
     - python
 
+# requires all files in repository
+{% set ignored_tests = [
+  "--ignore=tests/test_repo_hygiene.py",
+  "--ignore=tests/integration/test_examples_and_benchmarks.py",
+  "--deselect=tests/integration/test_examples.py::test_all_expected_scripts_are_present"
+]%}
+# "console script not installed
+{% set ignored_tests_win = [
+  "--deselect=tests/test_cli.py::test_console_script_is_installed"
+]%}
 test:
   source_files:
     - tests
@@ -33,13 +43,13 @@ test:
     - numpy >=1.26
     - scipy >=1.11
     - pandas >=2.1
-    - tomli >=2; # [py<311]
+    - tomli >=2 # [py<311]
     - ruff
     - mypy
   commands:
     - pip check
-    # requires all files in repository
-    - pytest -vv --ignore=tests/test_repo_hygiene.py --ignore=tests/integration/test_examples_and_benchmarks.py --deselect=tests/integration/test_examples.py::test_all_expected_scripts_are_present
+    - pytest -vv {{ ignored_tests | join(' ') }} # [not win]
+    - pytest -vv {{ ignored_tests | join(' ') }} {{ ignored_tests_win | join(' ') }} # [win]
   imports:
     - munkres
 
