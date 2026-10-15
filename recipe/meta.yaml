@@ -44,7 +44,7 @@ test:
     - munkres
 
 about:
-  home: https://github.com/bmc/munkres
+  home: https://github.com/iameishit/Paldita-munkres
   license: Apache-2.0
   license_family: Apache
   license_file: LICENSE.md
@@ -59,7 +59,7 @@ about:
     single item from each row and column in the matrix, such that no row and
     no column are used more than once.
   doc_url: http://software.clapper.org/munkres/
-  dev_url: https://github.com/bmc/munkres
+  dev_url: https://github.com/iameishit/Paldita-munkres
 
 extra:
   recipe-maintainers:
