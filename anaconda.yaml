@@ -1,4 +1,7 @@
 anaconda_config_version: 1
 upstream_sources:
-  - pypi:
-      identifier: munkres
+  - github:
+      identifier: iameishit/Paldita-munkres
+      use_max_tag: true
+      prefix: V
+      include_regex: ^V\d+\.\d+\.\d+$
